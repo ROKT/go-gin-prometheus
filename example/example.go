@@ -26,6 +26,7 @@ func main() {
 			// Type Options:
 			//	counter, counter_vec, gauge, gauge_vec,
 			//	histogram, histogram_vec, summary, summary_vec
+			//  histogram, histogram_vec uses additional property Buckets to override the buckets
 		}
 		p := ginprometheus.NewPrometheus("gin", customMetrics)
 	*/
