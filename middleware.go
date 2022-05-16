@@ -83,6 +83,7 @@ type Metric struct {
 	Description     string
 	Type            string
 	Args            []string
+	Buckets         []float64
 }
 
 // Prometheus contains the metrics gathered by the instance and its path
@@ -288,6 +289,7 @@ func NewMetric(m *Metric, subsystem string) prometheus.Collector {
 				Subsystem: subsystem,
 				Name:      m.Name,
 				Help:      m.Description,
+				Buckets:   m.Buckets,
 			},
 			m.Args,
 		)
@@ -297,6 +299,7 @@ func NewMetric(m *Metric, subsystem string) prometheus.Collector {
 				Subsystem: subsystem,
 				Name:      m.Name,
 				Help:      m.Description,
+				Buckets:   m.Buckets,
 			},
 		)
 	case "summary_vec":
